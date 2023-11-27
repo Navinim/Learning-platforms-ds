@@ -1,0 +1,67 @@
+.interview__wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.interview__tab-2 {
+    width: 25%; /* Adjust the width as needed */
+    padding: 20px; /* Add some spacing between tabs and content */
+}
+.interview__tab-content {
+    width: 70%; /* Adjust the width as needed */
+}
+.interview__wrapper .nav-item button{
+border:0px;
+text-align: start;
+}
+.interview__tab-2{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.interview__tab-content{
+    padding: 10px;
+    margin: 10px;
+}
+.interview__wrapper form {
+    display: flex;
+    align-items: center;
+}
+.interview__wrapper input{
+    width: 50%;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 1px solid #cac7c7;
+    padding: 10px;
+}
+
+.interview__wrapper label {
+    margin-right: 10px;
+}
+.interview__tab-2 h4 {
+    text-align: center;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+.interview__tab-2 h4{
+    font-size: 21px! important;
+    text-align: center;
+}
+}
+
+@media (max-width: 992px) {
+    /* Apply these styles when the screen width is 992px or less (large screen size) */
+    .interview__wrapper {
+        flex-direction: column;
+        align-items: stretch; /* Ensures each item takes full width */
+    }
+
+    .interview__tab-2 {
+        width: 100%;
+        margin: 10px 0; /* Adjust margin for spacing */
+    }
+
+    .interview__tab-content {
+        width: 100%;
+        margin: 10px 0; /* Adjust margin for spacing */
+    }
+}

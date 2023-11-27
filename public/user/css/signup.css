@@ -1,0 +1,76 @@
+/* CSS for the sign-up form */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .signup-header {
+    color: #043c6c;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 40px 80px 0px rgba(2, 2, 26, 0.14);
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .signup-input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+  }
+  
+  .signup-button {
+    background-color: #fb7b04;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .signup-button:hover {
+    background-color: #043c6c;
+  }
+  
+  .login-link {
+    margin-top: 10px;
+    color: #333333;
+  }
+  
+  .login-link a {
+    color: #043c6c;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+    color: #fb7b04;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 600px) {
+    .signup-form {
+      max-width: 100%;
+    }
+  
+    .signup-input,
+    .signup-button {
+      width: 100%;
+    }
+  }
+  

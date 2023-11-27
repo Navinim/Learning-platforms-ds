@@ -1,0 +1,104 @@
+/* CSS for the login form */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+  }
+  
+  .login-header {
+    color: #043c6c;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 40px 80px 0px rgba(2, 2, 26, 0.14);
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .login-input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+  }
+  
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .remember-me {
+    color: #043c6c;
+    display: flex;
+    align-items: center;
+  }
+  
+  .remember-checkbox {
+    margin-right: 5px;
+  }
+  
+  .forgot-password {
+    color: #043c6c;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+    color: #fb7b04;
+  }
+  
+  .login-button {
+    background-color:#fb7b04;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .login-button:hover {
+    background-color: #043c6c;
+  }
+  
+  .create-account {
+    margin-top: 10px;
+    color: #333333;
+  }
+  
+  .create-account a {
+    color: #043c6c;
+    text-decoration: none;
+  }
+  
+  .create-account a:hover {
+    text-decoration: underline;
+    color: #fb7b04;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 600px) {
+    .login-form {
+      max-width: 100%;
+    }
+  
+    .login-input,
+    .login-button {
+      width: 100%;
+    }
+  }
+  

@@ -1,0 +1,133 @@
+$flaticon_mycollection-font: "flaticon_mycollection";
+
+@font-face {
+    font-family: $flaticon_mycollection-font;
+    src: url("./flaticon_mycollection.ttf?f5b880706e562688365e5815bb8aa55f") format("truetype"),
+url("./flaticon_mycollection.woff?f5b880706e562688365e5815bb8aa55f") format("woff"),
+url("./flaticon_mycollection.woff2?f5b880706e562688365e5815bb8aa55f") format("woff2"),
+url("./flaticon_mycollection.eot?f5b880706e562688365e5815bb8aa55f#iefix") format("embedded-opentype"),
+url("./flaticon_mycollection.svg?f5b880706e562688365e5815bb8aa55f#flaticon_mycollection") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_mycollection !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_mycollection-map: (
+    "arrow-down-sign-to-navigate": "\f101",
+    "point": "\f102",
+    "passport": "\f103",
+    "employee": "\f104",
+    "reading": "\f105",
+    "visa": "\f106",
+    "passport-1": "\f107",
+    "team": "\f108",
+    "contract": "\f109",
+    "conference": "\f10a",
+    "healthcare": "\f10b",
+    "coronavirus": "\f10c",
+    "agile": "\f10d",
+    "next": "\f10e",
+    "interview": "\f10f",
+    "briefcase": "\f110",
+    "house": "\f111",
+    "rank": "\f112",
+    "languages": "\f113",
+    "air-transportation": "\f114",
+    "tourist": "\f115",
+    "immigration": "\f116",
+    "diplomacy": "\f117",
+    "double-check": "\f118",
+    "budgeting": "\f119",
+    "immigration-1": "\f11a",
+    "working": "\f11b",
+);
+
+.flaticon-arrow-down-sign-to-navigate:before {
+    content: map-get($flaticon_mycollection-map, "arrow-down-sign-to-navigate");
+}
+.flaticon-point:before {
+    content: map-get($flaticon_mycollection-map, "point");
+}
+.flaticon-passport:before {
+    content: map-get($flaticon_mycollection-map, "passport");
+}
+.flaticon-employee:before {
+    content: map-get($flaticon_mycollection-map, "employee");
+}
+.flaticon-reading:before {
+    content: map-get($flaticon_mycollection-map, "reading");
+}
+.flaticon-visa:before {
+    content: map-get($flaticon_mycollection-map, "visa");
+}
+.flaticon-passport-1:before {
+    content: map-get($flaticon_mycollection-map, "passport-1");
+}
+.flaticon-team:before {
+    content: map-get($flaticon_mycollection-map, "team");
+}
+.flaticon-contract:before {
+    content: map-get($flaticon_mycollection-map, "contract");
+}
+.flaticon-conference:before {
+    content: map-get($flaticon_mycollection-map, "conference");
+}
+.flaticon-healthcare:before {
+    content: map-get($flaticon_mycollection-map, "healthcare");
+}
+.flaticon-coronavirus:before {
+    content: map-get($flaticon_mycollection-map, "coronavirus");
+}
+.flaticon-agile:before {
+    content: map-get($flaticon_mycollection-map, "agile");
+}
+.flaticon-next:before {
+    content: map-get($flaticon_mycollection-map, "next");
+}
+.flaticon-interview:before {
+    content: map-get($flaticon_mycollection-map, "interview");
+}
+.flaticon-briefcase:before {
+    content: map-get($flaticon_mycollection-map, "briefcase");
+}
+.flaticon-house:before {
+    content: map-get($flaticon_mycollection-map, "house");
+}
+.flaticon-rank:before {
+    content: map-get($flaticon_mycollection-map, "rank");
+}
+.flaticon-languages:before {
+    content: map-get($flaticon_mycollection-map, "languages");
+}
+.flaticon-air-transportation:before {
+    content: map-get($flaticon_mycollection-map, "air-transportation");
+}
+.flaticon-tourist:before {
+    content: map-get($flaticon_mycollection-map, "tourist");
+}
+.flaticon-immigration:before {
+    content: map-get($flaticon_mycollection-map, "immigration");
+}
+.flaticon-diplomacy:before {
+    content: map-get($flaticon_mycollection-map, "diplomacy");
+}
+.flaticon-double-check:before {
+    content: map-get($flaticon_mycollection-map, "double-check");
+}
+.flaticon-budgeting:before {
+    content: map-get($flaticon_mycollection-map, "budgeting");
+}
+.flaticon-immigration-1:before {
+    content: map-get($flaticon_mycollection-map, "immigration-1");
+}
+.flaticon-working:before {
+    content: map-get($flaticon_mycollection-map, "working");
+}

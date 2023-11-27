@@ -1,0 +1,510 @@
+.wrapper .outer {
+    display: block;
+    /* padding: 40px;
+    margin: 40px; */
+    /* align-items: center;
+    justify-content: center; */
+  }
+  
+  .wrapper .card {
+    background: #fff;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    opacity: 1;
+    /* pointer-events: none; */
+    position: absolute;
+    /* justify-content: space-between; */
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    animation: animate 13s linear infinite;
+    animation-delay: calc(2s * var(--delay));
+    height: 260px;
+    width: 30%;
+    transform: scale(0.75);
+    top: 55px;
+    right: 205px;
+  }
+  
+  .outer:hover .card {
+    animation-play-state: paused;
+  }
+  
+  .wrapper .card:last-child {
+    animation-delay: calc(-3s * var(--delay));
+  }
+  
+  @keyframes animate {
+    /* 0% {
+      opacity: 0;
+      transform: translateY(-50%) scale(0.7);
+    }
+    5%, 20% {
+      opacity: 0;
+      transform: translateY(-20%) scale(0.9);
+    }
+    25%, 40% {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0%) scale(1);
+    }
+    45%, 60% {
+      opacity: 0;
+      transform: translateY(-20%) scale(0.9);
+    }
+    65%, 100% {
+      opacity: 0;
+      transform: translateY(50%) scale(0);
+    } */
+    0% {
+      transform: scale(0.75);
+      z-index: 0;
+  }
+  9% {
+      transform: scale(0.9) translateY(40px);
+      z-index: 2;
+  }
+  33% {
+      transform: scale(0.9) translateY(40px);
+      z-index: 2;
+  }
+  42% {
+      transform: translateY(80px);
+      z-index: 3;
+  }
+  66% {
+      transform: translateY(80px);
+      z-index: 3;
+      opacity: 1;
+  }
+  75% {
+      transform: translateY(130px);
+      opacity: 0;
+  }
+  80% {
+      transform: scale(0.75) translateY(40px);
+      opacity: 0;
+      z-index: 1;
+  }
+  90% {
+      transform: scale(0.75);
+      opacity: 1;
+      z-index: 1;
+  }
+  }
+  
+  .card .content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .wrapper .card .img {
+    height: 50px;
+    width: auto;
+    padding: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card .img img {
+    height: 100%;
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  
+  .details span {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .card a {
+    margin-top: 18px;
+    text-decoration: none;
+    padding: 7px 18px;
+    border-radius: 16px;
+    color: #fff;
+    background-color: #fb7b04;
+    /* background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%); */
+    transition: all 0.3s ease;
+    right: 95px;
+    position: relative;
+  }
+  
+  .card a:hover {
+    transform: scale(0.94);
+    background-color: #0056b3;
+  }
+
+ .card-banner {
+    position: relative;
+    margin-top: 68px;
+    text-align: center;
+}
+.card-banner .university-cards-scroll {
+    display: flex;
+    justify-content: center;
+}
+.card-banner .university-cards-scroll .carder.card-1 {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.card-banner .university-cards-scroll .carder {
+    position: absolute;
+    transform: scale(0.75);
+    height: 282px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    -webkit-animation-name: cards-animation;
+    animation-name: cards-animation;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    margin-top: 66px;
+}
+.card-banner .university-cards-scroll .carder.card-2 {
+    background-color: #99dbff;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+.card-banner .university-cards-scroll .carder {
+    position: absolute;
+    transform: scale(0.75);
+    height: 282px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    -webkit-animation-name: cards-animation;
+    animation-name: cards-animation;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    margin-top: 66px;
+}
+.card-banner .university-cards-scroll .carder.card-3 {
+    background-color: #47cf73;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+.card-banner .university-cards-scroll .carder {
+    position: absolute;
+    transform: scale(0.75);
+    height: 282px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    -webkit-animation-name: cards-animation;
+    animation-name: cards-animation;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    margin-top: 66px;
+}
+.card-banner .university-cards-scroll .carder.card-4 {
+    background-color: #47cf73;
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;
+}
+
+.card-banner .university-cards-scroll .carder {
+    position: absolute;
+    transform: scale(0.75);
+    height: 282px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    -webkit-animation-name: cards-animation;
+    animation-name: cards-animation;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    margin-top: 66px;
+}
+
+.custom-modal {
+  position: absolute;
+  bottom: 10px;
+  z-index: 99;
+  right: 50px !important;
+  width: 400px !important;
+  max-width: 80%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+  text-align: center;
+}
+
+/* Optional style to close the modal */
+.close-modal {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+.custom-modal button {
+  background-color: transparent;
+  border: 1px solid #0056b3;
+  border-radius: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+  color:#0056b3;
+  font-weight: 500;
+  font-size: large;
+}
+
+.custom-modal button:hover {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+}
+/* Custom horizontal line style */
+.custom-hr {
+  border-top: 2px solid #fb7b04;
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+}
+.custom-modal h2{
+  font-size: 20px;
+  margin-bottom: -10px;
+  color: #fb7b04;
+}
+.custom-modal .duration{
+  color: black;
+  font-weight: 700;
+}
+
+ .courseborder {
+  background-color: #fff;
+  margin: 10px;
+  /* box-shadow: 4px 8px 8px 0px rgba(0,0,0,0.5); */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ 
+  position: relative;
+}
+
+.tcourses .courseborder img{
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.5);
+}
+
+.courseborder .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #063868dd;
+}
+
+.courseborder .info > div {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.courseborder .info h5 {
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.courseborder .info ul {
+  margin: 0px;
+  padding-left: 20px;
+  margin: 15px 0 20px;
+  font-size: 14px;
+}
+
+.courseborder .info li > div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden !important;
+    height: 21px;
+}
+
+.courseborder .info .btn {
+  background-color: transparent;
+  border: 3px solid #fff;
+  font-weight: 600;
+  color: #fff;
+  padding: 5px 40px;
+  margin-top: 30px;
+  display: block;
+  margin: 20px auto;
+  transition: .3s;
+}
+
+.courseborder .tcourse-details{
+  padding: 20px;
+}
+
+.courseborder .tcourse-details h5 {
+  height: 30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.my-rating .jq-star {
+  width: 16px !important;
+}
+
+.jq-star {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.jq-star-svg {
+  padding-left: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+.courseborder:hover .info {
+  display: block;
+}
+
+.text-left {
+  text-align: left!important;
+}
+
+.info .btn:hover {
+  background-color: #fb7b04;
+  color: #fff;
+}
+.page__title-height .faq-details-small-warp .all-boxes {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+  margin-bottom: 50px;
+}
+
+.page__title-height .faq-details-small-warp .consulting .form-control {
+  height: 45px;
+  box-shadow: 0 2px 18px -1px #d5dbfb;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  color: #666666;
+}
+
+.overview-points-card {
+  /* width: 336px; */
+  height: 605px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #303030;
+  margin-bottom: 30px;
+
+  padding: 30px;
+    -webkit-box-shadow: 0px 30px 50px 0px rgba(1, 11, 60, 0.1);
+    -moz-box-shadow: 0px 30px 50px 0px rgba(1, 11, 60, 0.1);
+    box-shadow: 0px 30px 50px 0px rgba(1, 11, 60, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.overview-points-card__container {
+  display: flex;
+  position: relative;
+}
+
+.overview-points-card__container img {
+  left: 5px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+}
+
+.overview-points-card__container-contains {
+  padding-left: 80px;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-points-card__container-contains .strike-price h3 {
+  font-size: 15px;
+  display: inline-block;
+  text-decoration: line-through;
+}
+
+.overview-points-card__container-contains h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.overview-points-card__container-contains .strike-price span.special-price {
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.overview-points-card__container-contains .total-fee {
+  margin-bottom: 7px;
+}
+
+/* .overview-points-card__container-contains .new-timer .timer {
+  border-radius: 20px;
+  background: #f97919;
+  color: white;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4px 12px;
+  margin-top: 7px;
+  margin-bottom: 4px;
+} */
+
+.overview-points-card__container-contains .new-timer .timer p {
+  color: #fff;
+  font-size: 13px;
+}
+
+.overview-points-card__container-contains .new-timer p {
+  color: #f97919;
+  line-height: 18px;
+  font-size: 12px;
+  font-style: italic;
+  text-align: justify;
+}
+.overview-points-card__container-contains p {
+  font-size: 0.875rem;
+  margin: 0;
+  /* text-align: justify; */
+}

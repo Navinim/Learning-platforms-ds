@@ -1,5 +1,12 @@
 @extends('user.layouts.app')
-
+@push('css')
+<style>
+    ul{
+        list-style-type: none;
+    }
+</style>
+    
+@endpush
 @section('content')
 @include('user.includes.home_slider')
     <!--partners start-->
@@ -20,7 +27,6 @@
         <div class="container">
             <div class="heading-oc">
                 <h2>Explore our <span>Courses</span></h2>
-
                 <p class="text-align-justify">Embark on a journey of knowledge and growth with our diverse range of
                     meticulously crafted courses. Whether you're seeking to enhance your skills, broaden your
                     horizons,
@@ -30,7 +36,7 @@
             </div>
             <div class="academic-section">
                 <div class="line-heading">
-                    <h3>Academic Programs <span><a href="#">View all Courses</a></span></h3>
+                    <h3>Academic Programs <span><a href="#" hidden>View all Courses</a></span></h3>
                 </div>
             </div>
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -62,7 +68,7 @@
                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
                     <div class="container courses">
                         <div id="owl-course" class="owl-carousel owl-theme">
-
+                            
                             <div class="courseborder">
                                 <img src="assets/images/courses/tcourse1.jpg" class="img-responsive" alt=""
                                     width="100%" style="height: 150px;">
@@ -7931,60 +7937,26 @@
     <!-- why choose  Start -->
     <div class="choose pt-30 pb-30">
         <div class="container">
-            <div class="heading-oc">
+                 <div class="heading-oc">
                 <h2>Why<span> Durshikshya ?</span></h2>
-
-                <p class="text-align-justify">We are leading training provider, helping professionals across
-                    industries
-                    and sectors develop new expertise and bridge their skill gap for recognition and growth in the
-                    global corporate world.</p>
+                {{ Str::after(Str::before($profile->why_detail, '</p>'), '<p>') }}
             </div>
             <div class="row chooserow">
                 <div class="choosecontent">
-                    <img class="imagechoose" src="assets/images/blogs/blog2.jpg" alt="Image">
+                    <img class="imagechoose" src="{{ asset('uploads/profile/'.$profile->why_banner)}}" alt="Image">
                 </div>
                 <div class="choosecontent">
                     <!-- <h3>Develop the skills to move fast and stay ahead.</h3> -->
-                    <p>We provide courses to enhance your knowledge and critical thinking abilities and make you an
-                        expert in your domain. Innovation drives us forward. We're not just here to meet your needs;
-                        we're here to exceed them. Our team constantly explores new technologies and approaches to
-                        ensure that you're getting the most innovative solutions available. We're committed to
-                        providing
-                        you with exceptional services that set us apart.</p>
-                    <ul class="choose-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Enhance Career Excellence
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Perform as Think-Tank
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Establish Governance
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Focus on Future Skills
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Reliable & Cost Effective
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Dedicated Developers
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            Psychological scoring
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            24/7 Fully Support
-                        </li>
-                    </ul>
+                    {{-- {{ Str::after($profile->why_detail, '</p>') }} --}}
+                    @php
+                        $contentWithoutFirstParagraph = Str::after($profile->why_detail, '</p>');
+                        
+                    @endphp
+                    {!! str_replace(
+                        ['<ul>', '</ul>', '<li>', '</li>'],
+                        ['<ul class="choose-list">', '</ul>', '<li><i class="fas fa-check-circle"></i>', '</li>'],
+                        $contentWithoutFirstParagraph
+                    ) !!}   
                 </div>
             </div>
         </div>
@@ -8020,56 +7992,31 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="zoom-out-right" data-aos-duration="1000">
                     <div class="benefit-image">
-                        <img src="assets/images/benefits/benefit1.png" class="benefit1" alt="image">
-                        <img src="assets/images/benefits/benefit2.png" class="benefit2" alt="image">
-                        <img src="assets/images/benefits/benefit3.jpg" class="benefit3" alt="image">
+                        <img src="{{asset('user/images/benefits/benefit1.png')}}" class="benefit1" alt="image">
+                        <img src="{{asset('user/images/benefits/benefit2.png')}}" class="benefit2" alt="image">
+                        <img src="{{asset('user/images/benefits/benefit3.jpg')}}" class="benefit3" alt="image">
                         <div class="benefit-card" data-aos="flip-left" data-aos-duration="2500">
-                            <h2>9+ <span>Years of</span></h2>
-                            <p>Providing Quality Resources and Education</p>
+                            {!!$dream->slogan!!}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="benefit-content single-section">
                         <!-- <span class="title">Our Services</span> -->
-                        <h2>Transition to your dream career with Bootcamps</h2>
-                        <p>We are privileged to work with hundred future thinking awesom business including many of
-                            the
-                            world’s top Leading Demanded Courses</p>
-                        <ul>
+                        <h2>{{$dream->title}}</h2>
+                        {!!$dream->detail!!}
+                        <ul>                            
+                            @foreach (json_decode($dream->deals) as $index => $item)
                             <li>
                                 <div class="icon">
-                                    <i class="fas fa-microchip"></i>
+                                    <i class="fas {{$item->icon}}"></i>
                                 </div>
                                 <div class="content">
-                                    <h5>Platform to boost your tech career</h5>
-                                    <p>Discover a transformative platform designed to elevate your tech career to
-                                        new
-                                        heights.</p>
+                                    <h5>{{$item->title}}</h5>
+                                    <p>{{$item->detail}}</p>
                                 </div>
                             </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="content">
-                                    <h5>Work-ready development Experience</h5>
-                                    <p>Gain real-world, work-ready development experience that prepares you for
-                                        success
-                                        in today's rapidly evolving tech landscape.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-laptop-code"></i>
-                                </div>
-                                <div class="content">
-                                    <h5>Immersive Learning Experience</h5>
-                                    <p>Embark on an immersive learning journey that fosters a transformative
-                                        educational
-                                        experience. </p>
-                                </div>
-                            </li>
+                            @endforeach                           
                         </ul>
                     </div>
                 </div>
@@ -8077,7 +8024,6 @@
         </div>
     </div>
     <!-- Benefit Warp End -->
-
     <div class="container collab">
         <div class="container">
             <div class="heading-collab">
@@ -8088,45 +8034,42 @@
             </div>
 
             <div class="stat-bg-area">
-                <div class="girl-bg"><img alt="" src="assets/images/collab/collab -bg.png"></div>
-
-                <div class="first-phas">
-                    <div class="personal-tutor"><img alt="" src="/assets/images/collab/pers-tutr.png">
-                        <div class="para">
-                            <h5>Work with Expert <span>Personal Tutor</span></h5>
-
-                            <p>Experience self-paced online learning at its finest, led by industry experts
-                                exclusively
-                                assigned to you throughout your learning journey.</p>
+                <div class="girl-bg"><img alt="" src="{{asset('user/images/collab/collab -bg.png')}}"></div>
+                @foreach ($network as $item)
+                @if ($item->id == 1)
+                    <div class="first-phas">
+                        <div class="personal-tutor">
+                            <img  src="{{url('uploads/networks/'.$item->image)}}" alt="image">
+                            <div class="para">
+                                <h5>{{ $item->title }}</h5>
+                                <p>{{ $item->detail }}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="network-global"><img alt="" src="assets/images/collab/newt-glob.png">
+                    
+                @elseif ($item->id == 2)
+                    <div class="network-global">
+                        <img  src="{{url('uploads/networks/'.$item->image)}}" alt="image">
                         <div class="para">
-                            <h5>Grow Your <span>Network Globally</span></h5>
-
-                            <p>Interact, Collaborate and learn from peers from varied industries and across the
-                                globe
-                                through Live Discussions on forums, Panel discussions, Webinars and a host of other
-                                activities and sessions.</p>
+                            <h5>{{ $item->title }}</h5>
+                            <p>{{ $item->detail }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="second-phas">
-                    <div class="industy-exp"><img alt="" src="assets/images/collab/pers-tutr.png">
-                        <div class="para">
-                            <h5>Engage with <span>Industry Experts</span></h5>
-
-                            <p>Our Live Webinars give you an opportunity to learn from industry experts. Engage with
-                                them directly.</p>
+                @else
+                    <div class="second-phas">
+                        <div class="industy-exp">
+                            <img  src="{{url('uploads/networks/'.$item->image)}}" alt="image">
+                            <div class="para">
+                                <h5>{{ $item->title }}</h5>
+                                <p>{{ $item->detail }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+            @endforeach                
             </div>
         </div>
-
-    </div>
+    <div>
 
     <div class="container insight-section">
         <div class="container">
@@ -8141,101 +8084,57 @@
 
             <div class="big-latest row justify-content-between">
                 <div class="col-md-7">
+                    @foreach ($course as $item)
                     <div class="big-preview">
-                        <img src="assets/images/blogs/blog4.png" alt="">
+                        <img src="{{ asset('uploads/courses/' . $item->banner) }}" alt="">
                         <div class="para-area">
-                            <a href="#">
-                                <h5>Discover the full-stack development course for mastering modern web technologies
-                                </h5>
+                            <a href="{{ route('course_detail', ['slug' => $item->slug]) }}">
+                                <h5>{{$item->title}} </h5>
                             </a>
-                            <p>Seize the opportunity to excel in web development through our immersive full-stack
-                                development program...</p>
+                            {!!$item->details!!}
                             <div class="auth-time">
                                 <div class="author">
                                     <p><span>Durshikshya</span> | <span>3</span> MINS READ</p>
                                 </div>
                                 <div class="date">
-                                    <p>July 31, 2023</p>
+                                    <p>{{ $item->created_at->format('F d, Y') }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    
                 </div>
                 <div class="col-md-4">
                     <div class="latest-article">
                         <h4>Latest Article</h4>
+                        @foreach ($blogs as $item)
                         <div class="article-single">
-                            <img src="assets/images/blogs/blog5.png" alt="">
+                            <img src="{{ asset('uploads/blogs/' . $item->banner) }}" alt="">
                             <div class="content-right">
-                                <h5>Exploring Frontend Jobs for Beginners to get hands on real-world</h5>
+                                <h5>{{$item->title}}</h5>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
-                        <div class="article-single">
-                            <img src="assets/images/blogs/blog3.jpg" alt="">
-                            <div class="content-right">
-                                <h5>The most beneficial factor of Business Intelligence you need to know </h5>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="article-single">
-                            <img src="assets/images/blogs/blog1.jpg" alt="">
-                            <div class="content-right">
-                                <h5>These are the Latest Technologies that you need to know in 2023</h5>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="article-single">
-                            <img src="assets/images/blogs/blog2.jpg" alt="">
-                            <div class="content-right">
-                                <h5>How counselling help you to choose the right path in programming</h5>
-                                <a href="#">Read More</a>
-                            </div>
-                        </div>
+                        @endforeach                  
+                       
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                @foreach ($bootcamps as $item)
+                <div class="col-md-3 mt-4">
                     <div class="review-single">
-                        <img src="assets/images/blogs/blog6.png">
+                        <img src="{{ asset('uploads/bootcamps/' . $item->banner) }}">
                         <div class="content-area">
-                            <span>Practice Test Sample</span>
-                            <h5>Front End Development Model Question</h5>
-                            <a href="#">Read More</a>
+                            <span>Practice Based Modules</span>
+                            <h5>{{$item->title}}</h5>
+                            <a href="{{ route('bootcamp_details', ['slug' => $item->slug]) }}">Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="review-single">
-                        <img src="assets/images/blogs/blog7.png">
-                        <div class="content-area">
-                            <span>Practice Test Sample</span>
-                            <h5>Database Model Question</h5>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="review-single">
-                        <img src="assets/images/blogs/blog9.png">
-                        <div class="content-area">
-                            <span>Practice Test Sample</span>
-                            <h5>Full Stack Development Model Question</h5>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="review-single">
-                        <img src="assets/images/blogs/blog8.png">
-                        <div class="content-area">
-                            <span>Practice Test Sample</span>
-                            <h5>Software Development Model Question</h5>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach              
+                
             </div>
             <div class="view-all">
                 <a href="#">View All</a>
@@ -8252,82 +8151,55 @@
                 <h2>What Are They Talking About Us?</h2>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-6" data-cue="slideInUp">
-                    <div class="feedback-widget">
-                        <div class="content">
-                            <p>The instructors were extremely knowledgeable and passionate about the subject matter,
-                                and
-                                their enthusiasm was contagious. The curriculum was well-structured and covered all
-                                the
-                                essential aspects of the course in great detail.</p>
-                        </div>
-                        <div class="client d-flex align-items-center justify-content-between">
-                            <div class="client-self d-flex align-items-center">
-                                <div class="image">
-                                    <img src="assets/images/users/feedback1.png" alt="image">
-                                </div>
-                                <div class="self">
-                                    <h4>Chandra Raut</h4>
-                                    <span>Web Developer</span>
-                                </div>
+                @foreach ($testimonial as $item)
+                @if($item->id % 2 == 0)
+                    <div class="col-lg-4 col-sm-6" data-cue="slideInUp">
+                        <div class="feedback-widget">
+                            <div class="content">
+                                {!!$item->feedback!!}
                             </div>
-                            <div class="icon">
-                                <img src="assets/images/svgs/client.svg" alt="image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6" data-cue="slideInUp">
-                    <div class="feedback-widget">
-                        <div class="client style2 d-flex align-items-center justify-content-between">
-                            <div class="client-self d-flex align-items-center">
-                                <div class="image">
-                                    <img src="assets/images/users/feedback2.png" alt="image">
+                            <div class="client d-flex align-items-center justify-content-between">
+                                <div class="client-self d-flex align-items-center">
+                                    <div class="image">
+                                        <img src="{{url('uploads/testi/'.$item->image)}}" alt="image">
+                                    </div>
+                                    <div class="self">
+                                        <h4>{{$item->name}}</h4>
+                                        <span>{{$item->position}}</span>
+                                    </div>
                                 </div>
-                                <div class="self">
-                                    <h4>Saunak Basnet</h4>
-                                    <span>Data Engineer</span>
+                                <div class="icon">
+                                    <img src="{{asset('user/images/svgs/client.svg')}}" alt="image">
                                 </div>
-                            </div>
-                            <div class="icon">
-                                <img src="assets/images/svgs/client.svg" alt="image">
-                            </div>
-                        </div>
-                        <div class="content style2">
-                            <p>As a data engineering student, I was highly appreciative of the instructors' profound
-                                knowledge and their skill in fostering genuine interest. The curriculum's thorough
-                                arrangement ensured a complete exploration of all essential components, making for a
-                                truly enriching learning experience.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6" data-cue="slideInUp">
-                    <div class="feedback-widget">
-                        <div class="content">
-                            <p>Coming from a software development student's perspective, I was truly impressed by
-                                the
-                                instructors' expertise and their ability to ignite genuine passion for the subject.
-                                The
-                                curriculum's meticulous organization left no aspect untouched, providing an
-                                enriching
-                                and comprehensive learning journey.</p>
-                        </div>
-                        <div class="client d-flex align-items-center justify-content-between">
-                            <div class="client-self d-flex align-items-center">
-                                <div class="image">
-                                    <img src="assets/images/users/feedback3.png" alt="image">
-                                </div>
-                                <div class="self">
-                                    <h4>Kuber Oli</h4>
-                                    <span>Software Developer</span>
-                                </div>
-                            </div>
-                            <div class="icon">
-                                <img src="assets/images/svgs/client.svg" alt="image">
                             </div>
                         </div>
                     </div>
-                </div>
+                    @else
+
+                    <div class="col-lg-4 col-sm-6" data-cue="slideInUp">
+                        <div class="feedback-widget">
+                            <div class="client style2 d-flex align-items-center justify-content-between">
+                                <div class="client-self d-flex align-items-center">
+                                    <div class="image">
+                                        <img src="{{url('uploads/testi/'.$item->image)}}" alt="image">
+                                    </div>
+                                    <div class="self">
+                                        <h4>{{$item->name}}</h4>
+                                        <span>{{$item->position}}</span>
+                                    </div>
+                                </div>
+                                <div class="icon">
+                                    <img src="{{asset('user/images/svgs/client.svg')}}" alt="image">
+                                </div>
+                            </div>
+                            <div class="content style2">
+                                {!!$item->feedback!!}
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach              
+               
             </div>
         </div>
     </div>

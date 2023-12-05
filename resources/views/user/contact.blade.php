@@ -1,13 +1,13 @@
 @extends('user.layouts.app')
 @push('css')
-     <!--contact-->
-     <link rel="stylesheet" href="{{asset('user/css/contact.css')}}"> 
+    <!--contact-->
+    <link rel="stylesheet" href="{{ asset('user/css/contact.css') }}">
 @endpush
 @section('content')
     <!--page title area start-->
     <section class="page__title-area page__title-height page__title-overlay d-flex align-items-center"
         data-background="assets/img/page-title/page-title.jpg"
-        style="background-image: url(assets/images/page-tittle/contact.png);">
+        style="background-image: url('{{asset('user/images/page-tittle/contact.png')}}');">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-12">
@@ -35,59 +35,59 @@
                             <h2 class="section__title">Get Intouch</h2>
                             <p>Have a question or just want to say hi? We'd love to hear from you.</p>
                         </div>
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Success!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         <div class="contact__form">
-                            <form action="{{route('storeContact')}}" method="POST">@csrf
+                            <form method="POST" action="{{route('storeContact')}}" enctype="multipart/form-data">@csrf
                                 <div class="row">
-                                    <div class="col-xxl-6 col-xl-6 col-md-6">
-                                        <div class="contact__form-input @error('name') is-invalid @enderror">
-                                            <input type="text" placeholder="Your Name" value="{{ old('name') }}" name="name">
-                                        </div>
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                   <div class="col-xxl-6 col-xl-6 col-md-6">
+                                      <div class="contact__form-input">
+                                         <input type="text" placeholder="Your Name" name="name" required>
+                                      </div>
+                                   </div>
+                                   <div class="col-xxl-6 col-xl-6 col-md-6">
+                                      <div class="contact__form-input">
+                                         <input type="email" placeholder="Your Email" name="email" required>
+                                      </div>
+                                   </div>
+                                   <div class="col-xxl-6 col-xl-6 col-md-6">
+                                    <div class="contact__form-input">
+                                       <input type="number" placeholder="Phone Number" name="phone" required>
                                     </div>
-                                    <div class="col-xxl-6 col-xl-6 col-md-6">
-                                        <div class="contact__form-input @error('email') is-invalid @enderror">
-                                            <input type="email" placeholder="Your Email"value="{{ old('email') }}" name="email">
-                                        </div>
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="contact__form-input">
-                                            <input type="text" placeholder="Subject" name="subject">
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="contact__form-input">
-                                            <textarea placeholder="Enter Your Message" name="content"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="contact__form-agree  d-flex align-items-center mb-20">
-                                            <input class="e-check-input @error('is_checked') is-invalid @enderror" type="checkbox" id="e-agree" value="{{ old('is_checked') }}">
-                                            <label class="e-check-label" for="e-agree">I agree to the<a
-                                                    href="#">Terms &amp; Conditions</a></label>
-                                                    @error('is_checked')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="contact__btn">
-                                            <button type="submit" class="default-btn"
-                                                style="border: none; margin-top: 20px;">Send your message</button>
-                                        </div>
-                                    </div>
+                                 </div>
+                                   <div class="col-xxl-6 col-xl-6 col-md-6">
+                                      <div class="contact__form-input">
+                                         <input type="text" placeholder="Subject" name="subject">
+                                      </div>
+                                   </div>
+                                   <div class="col-xxl-12">
+                                      <div class="contact__form-input">
+                                         <textarea placeholder="Enter Your Message" name="content"></textarea>
+                                      </div>
+                                   </div>
+                                   <div class="col-xxl-12">
+                                      <div class="contact__form-agree  d-flex align-items-center mb-20">
+                                         <input class="e-check-input" type="checkbox" name="is_checked" value="1" {{ 'is_checked' ? 'checked' : '' }} id="e-agree" required>
+                                         <label class="e-check-label" for="e-agree">I agree to the<a href="#">Terms &amp; Conditions</a></label>
+                                      </div>
+                                   </div>
+                                   <div class="col-xxl-12">
+                                      <div class="contact__btn">
+                                         <button type="submit" class="default-btn" style="border: none; margin-top: 20px;">Send your message</button>
+                                      </div>
+                                   </div>
                                 </div>
-                            </form>
+                             </form>
                         </div>
                     </div>
                 </div>

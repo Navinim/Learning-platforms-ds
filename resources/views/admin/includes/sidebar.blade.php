@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="#" class="app-brand-link">
+      <a href="{{route('admin.dashboard')}}" class="app-brand-link">
         <span class="app-brand-logo demo">
           <img src="{{asset('user/images/logo.png')}}" style="width: 130px" alt="">
         </span>
@@ -21,7 +21,44 @@
         </a>
       </li>
 
-
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Profile Setting</span>
+      </li>
+      <li class="menu-item">
+        <a href="javascrip" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-dock-top"></i>
+          <div data-i18n="Misc">Company Info</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{route('profile.index')}}" class="menu-link">
+              <div data-i18n="Under Maintenance">Introduction</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{route('slider.index')}}" class="menu-link">              
+              <div data-i18n="Account Settings">Home Banner</div>
+            </a>       
+          </li>          
+          
+        <li class="menu-item">
+            <a href="{{route('dream.index')}}" class="menu-link">
+              <div data-i18n="Under Maintenance">Career Transit</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{route('network.index')}}" class="menu-link">
+              <div data-i18n="Under Maintenance">Networks</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{route('testimonial.index')}}" class="menu-link">
+              <div data-i18n="Under Maintenance">Feedbacks</div>
+            </a>
+          </li>
+          
+        </ul>
+      </li>
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Course Details</span>
       </li>
@@ -106,19 +143,19 @@
         <span class="menu-header-text">Resources</span>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{route('blog.index')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-bowling-ball"></i>
           <div data-i18n="Account Settings">Blogs</div>
         </a>       
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{route('practices.index')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-bowling-ball"></i>
           <div data-i18n="Account Settings">Practice Test</div>
         </a>       
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{route('interviews.index')}}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-bowling-ball"></i>
           <div data-i18n="Account Settings">Interview Question</div>
         </a>       
@@ -209,7 +246,7 @@
       <!-- Misc -->
       <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
       <li class="menu-item">
-        <a href="#"  class="menu-link">
+        <a href="{{route('faqs.index')}}"  class="menu-link">
           <i class="menu-icon tf-icons bx bx-file"></i>
           <div data-i18n="Support">FAQs</div>
         </a>
@@ -221,9 +258,15 @@
         </a>
       </li>
       <li class="menu-item">
-        <a href="#"  class="menu-link">
+        <a href="{{route('contacts.index')}}"  class="menu-link">
           <i class="menu-icon tf-icons bx bx-support"></i>
           <div data-i18n="Support">Support </div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{route('inquiries.index')}}"  class="menu-link">
+          <i class="menu-icon tf-icons bx bx-support"></i>
+          <div data-i18n="Support">Join Us</div>
         </a>
       </li>
        

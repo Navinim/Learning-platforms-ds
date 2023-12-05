@@ -41,6 +41,7 @@ class BootcampMemoController extends Controller
             'time' => 'required|string',
             'venue' => 'required|string',
             'expert' => 'required|string',
+            'detail' => 'required|string',
         ]);                   
         try {
             $item = new BootcampMemo();
@@ -51,6 +52,7 @@ class BootcampMemoController extends Controller
                 'time' => $request->input('time'),
                 'venue' => $request->input('venue'),
                 'expert' => $request->input('expert'),
+                'detail'=> $request->input('detail'),
             ]);
             $item->save();            
             
@@ -94,6 +96,7 @@ class BootcampMemoController extends Controller
             'time' => 'required|string',
             'venue' => 'required|string',
             'expert' => 'required|string',
+            'detail'=> 'required|string',
         ]);
         try {
             $item = BootcampMemo::find($id);
@@ -108,6 +111,7 @@ class BootcampMemoController extends Controller
             'time' => $request->input('time'),
             'venue' => $request->input('venue'),
             'expert' => $request->input('expert'),
+            'detail'=> $request->input('detail'),
         ]);
         $item->save();
          } catch (\Exception $e) {

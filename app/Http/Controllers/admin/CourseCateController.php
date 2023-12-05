@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Database\QueryException;
 
 class CourseCateController extends Controller
 {
@@ -72,8 +73,18 @@ class CourseCateController extends Controller
      */
     public function destroy(string $id)
     {
-        $cate=CourseCategory::find($id);
-        $cate->delete();
-        return redirect()->route('courses.index')->with('success','Course Category has been deleted ');
+        try {
+            
+            $cate=CourseCategory::find($id);
+            $cate->delete();
+            return redirect()->route('courses.index')->with('success','Data Deleted Successfully');
+        } catch (QueryException $exception) {            
+            if ($exception->errorInfo[1] === 1451) {               
+                return redirect()->route('courses.index')->with('error', 'Cannot delete the Category because it is associated with other records.But you can edit it.');
+            }    
+            throw $exception;
+        }
+        
+       
     }
 }

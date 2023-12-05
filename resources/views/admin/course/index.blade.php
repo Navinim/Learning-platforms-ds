@@ -13,6 +13,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
             
                 <div class="col-sm-8">
                     <section class="card">
@@ -153,6 +158,7 @@
             {{-- add form modal end --}}
         {{-- edit form modal --}}
             <!-- Modal -->
+            @if (!empty($item))
             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form action="{{ route('category.update', $item->id) }}" method="POST">
@@ -179,6 +185,8 @@
                     </form>
                 </div>
             </div>
+            @endif
+           
             {{-- edit form modal end --}}
         </section>
     </section>

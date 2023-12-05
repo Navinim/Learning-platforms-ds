@@ -10,21 +10,20 @@
                             Edit Team Member
                         </header>
                         <div class="panel-body">
-                            <form role="form" action="{{ route('members.update',$teams->id) }}" enctype="multipart/form-data" method="POST">@csrf
+                            <form role="form" action="{{ route('network.update',$network->id) }}" enctype="multipart/form-data" method="POST">@csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" name="name" id="name" value="{{$teams->name}}" placeholder="Client Name">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" name="title" id="name" value="{{$network->title}}" placeholder="Title">
                                 </div>
                                 <div class="form-group">
-                                    <label for="position">Position</label>
-                                    <input type="text" class="form-control" name="position" value="{{$teams->position}}" id="position"
-                                        placeholder="CLient Position">
+                                    <label for="detail">Short Detail</label>
+                                    <textarea type="text" class="form-control" name="detail" id="detail"
+                                        placeholder="Consultants detail">{{$network->detail}}</textarea>
                                 </div>                               
                                 <div class="form-group">
-                                    <label for="img">Client Image</label>
-                                    <input type="file" class="form-control" id="image" name="image" value="{{$teams->image}}">
-                                    <img src="{{asset('uploads/members')}}/{{$teams->image}}" height="100" width="100">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control"  id="image" name="image">                                    
                                 </div>
                                 <button type="submit" class="btn btn-info">Submit</button>
                             </form>

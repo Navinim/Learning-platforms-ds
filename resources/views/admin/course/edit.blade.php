@@ -26,10 +26,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="course_category_id">Course Category</label><sup>*</sup>
-                                    <select class="form-select" name="course_category_id" aria-label="Default select example">
-                                        <option selected value="{{$course->category->id}}">{{$course->category->title}}</option>
+                                    <select class="form-select" name="course_category_id" aria-label="Default select example">                                       
                                         @foreach ($cate_course as $item)
-                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                        <option value="{{$item->id}}"{{ $item->id == $course->course_category_id ? 'selected' : '' }}>{{$item->title}}</option>
                                         @endforeach                                       
                                         
                                       </select>

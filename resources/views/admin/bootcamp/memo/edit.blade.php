@@ -40,7 +40,8 @@
             
             <label for="expert">Expert Team:</label>
             <input class="form-control" type="text" name="expert" value="{{$bootcampmemo['expert']}}" placeholder="expert" required>
-
+            <label for="expert">Details:</label>
+            <textarea class="form-control" type="text" name="detail" placeholder="expert">{{$bootcampmemo['detail']}}</textarea>
             <button type="submit" class="btn btn-info mt-2">Update Memo</button>
         </form>
             </div>

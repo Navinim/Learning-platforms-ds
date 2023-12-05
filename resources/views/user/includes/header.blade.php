@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}">
-            <img src="{{ asset('user/images/logo.png') }}" alt="logo" style="height: 40px;">
+            <img src="{{ asset('uploads/profile/'.$profile->logo_main)}}" alt="logo" style="height: 40px;">
         </a>
         <button class="navbar-toggler" data-bs-toggle="offcanvas" href="#navbarOffcanvas" role="button"
             aria-controls="navbarOffcanvas">
@@ -66,29 +66,7 @@
                         <li class="nav-item">
                             <a href="{{route('diploma_details',['slug' => $item->slug])}}" class="nav-link">{{$item->title}}</a>
                         </li>
-                        @endforeach
-                        
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">Express Diploma</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="express-diploma-in-ds-ml.html" class="nav-link">Express Diploma in Data
-                                        Science and Machine Learning</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="express-diploma-in-da.html" class="nav-link"> Express Diploma in Data
-                                        Analytics</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="express-diploma-in-se.html" class="nav-link"> Express Diploma in
-                                        Software Engineering</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="express-diploma-in-dm.html" class="nav-link">Express Diploma in Digital
-                                        Marketing</a>
-                                </li>
-                            </ul>
-                        </li> --}}
+                        @endforeach                       
 
                     </ul>
                 </li>
@@ -98,13 +76,13 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
-                            <a href="blog.html" class="nav-link">Blog</a>
+                            <a href="{{route('grid_blog')}}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="practice.html" class="nav-link">Practice Test</a>
+                            <a href="{{route('practice')}}" class="nav-link">Practice Test</a>
                         </li>
                         <li class="nav-item">
-                            <a href="interview-question.html" class="nav-link">Interview Question</a>
+                            <a href="{{route('interview')}}" class="nav-link">Interview Question</a>
                         </li>
                     </ul>
 
@@ -116,7 +94,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
-                            <a href="faq.html" class="nav-link">FAQ</a>
+                            <a href="{{route('faq')}}" class="nav-link">FAQ</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">Contact Us</a>

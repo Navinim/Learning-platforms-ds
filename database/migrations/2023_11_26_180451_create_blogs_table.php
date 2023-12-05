@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('owner');
-            $table->string('details');
-            $table->string('banner');
+            $table->string('owner')->nullable();
+            $table->string('details')->nullable();
+            $table->string('banner')->nullable();
+            $table->foreignId('tag_id')->constrained('tags');
             $table->timestamps();
         });
     }

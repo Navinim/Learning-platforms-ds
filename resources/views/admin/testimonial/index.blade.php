@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-sm-12">
                     <section class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-between">
                             <h5>Testimonials (What Client's Say?)</h5>
                             
-                            <a href="{{route('testimonials.create')}}" class="btn btn-success" style="margin-bottom: 10px">Add New <i class="bx bx-plus px-2"></i></a>
+                            <a href="{{route('testimonial.create')}}" class="btn btn-success" style="margin-bottom: 10px">Add New <i class="bx bx-plus px-2"></i></a>
                         </div>
                         <div class="card-body">                        
 
@@ -18,22 +18,24 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>                                            
-                                            <th>Country</th>
+                                            <th>Position</th>
                                             <th>Message</th>                                            
                                             <th>Image</th>
+                                            <th>Video</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($testimonials as $testimonial)   
+                                        @foreach ($testimonial as $testimonial)   
                                         <tr class="gradeX">
-                                            <td>{{$testimonial->name}}</td>                                            
-                                            <td>{{$testimonial->country}}</td>
-                                            <td>{!! $testimonial->message !!}</td>                                            
-                                            <td><img src="{{url('uploads/testimonials/'.$testimonial->image)}}" height="100" width="100"></td>
+                                            <td>{{$testimonial->name}}({{$testimonial->type}})</td>                                            
+                                            <td>{{$testimonial->position}}</td>
+                                            <td>{!! $testimonial->feedback !!}</td>                                            
+                                            <td><img src="{{url('uploads/testi/'.$testimonial->image)}}" height="100" width="100"></td>
+                                            <td>{{$testimonial->videoUrl}}</td>
                                             <td>
-                                                <a href="{{route('testimonials.edit',$testimonial->id)}}" class="btn btn-primary mx-2"><i class="bx bx-edit"></i></a>
-                                                <form method="POST" action="{{route('testimonials.destroy',$testimonial->id)}}">
+                                                <a href="{{route('testimonial.edit',$testimonial->id)}}" class="btn btn-primary mx-2"><i class="bx bx-edit"></i></a>
+                                                <form method="POST" action="{{route('testimonial.destroy',$testimonial->id)}}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button onclick="return confirm('Are you sure you want to delete this item?')" class="btn btn-danger mt-3 mx-2"><i class="bx bx-trash"></i></button>
